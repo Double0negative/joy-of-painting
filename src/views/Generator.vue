@@ -33,11 +33,13 @@ async function generate() {
   generator.setup(painter, options)
 
   if (generator.isIterable()) {
-    for (let i = 0; i < 30000; i++) {
+    let stop = false;
+    let iteration = 0;
+    while (!stop) {
       let time = Date.now() + 10;
-      while (Date.now() < time) {
-        generator.paint(painter, options);
-        ++i;
+      while (Date.now() < time && !stop) {
+        stop = generator.paint(painter, options, iteration);
+        iteration++;
       }
       await sleep(0);
     }

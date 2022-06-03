@@ -1,7 +1,9 @@
 import { randInt, clamp } from "../utils/util";
 import { SimplexNoise } from "simplex-noise";
+
 import Painter from "../utils/painter";
 const tinycolor = require("tinycolor2");
+const FastSimplexNoise = require("fast-simplex-noise/fast-simplex-noise");
 
 
 export default class Mountians {
@@ -20,7 +22,8 @@ export default class Mountians {
 
     setup(painter, options) {
         this.painter = painter;
-        this.noise = new SimplexNoise();
+        // this.noise = new SimplexNoise();
+        this.noise = new FastSimplexNoise({ amplitude: .5, frequency: .6, octaves: 8, persistence: .4 });
         this.nightMode = randInt(0, 1);
 
         this.steepness = randInt(300, 400);
@@ -31,7 +34,7 @@ export default class Mountians {
 
         this.patternCanvas = document.createElement('canvas');
         this.patternPainter = new Painter(this.patternCanvas, this.painter.w, this.painter.h);
-        // document.body.appendChild(this.patternCanvas);
+        document.body.appendChild(this.patternCanvas);
     }
 
     paint(painter, options) {
@@ -96,7 +99,7 @@ export default class Mountians {
     }
 
     getHeight(x, layer) {
-        return (((this.noise.noise2D(x / this.steepness, layer) / 2) * .5) * this.maxSize + this.getOffset(layer));
+        return (((this.noise.get2DNoise(x / this.steepness, layer) / 2) * .5) * this.maxSize + this.getOffset(layer));
     }
 
     paintMnts() {
@@ -194,9 +197,6 @@ export default class Mountians {
         const x = randInt(this.painter.w);
         const bottom = (this.painter.h - this.getHeight(x, this.layers - 1)) + 50;
         const interations = randInt(15, 20);
-
-        console.log(height, width, x, bottom, interations)
-
 
         for (let a = 0; a < interations; a++) {
             let ratio = a / interations;

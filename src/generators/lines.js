@@ -23,6 +23,7 @@ export default class Lines {
     }
 
     setup(painter, options) {
+        this.maxIterations = 10000;
         this.color = randColor(.3);
 
         this.pos1.x = randInt(painter.w);
@@ -32,7 +33,10 @@ export default class Lines {
         this.pos2.y = randInt(painter.h);
     }
 
-    paint(painter, options) {
+    paint(painter, options, iteration) {
+        if (iteration > this.maxIterations) {
+            return true;
+        }
         painter.setStroke(this.color, 2);
         painter.makePath([this.pos1, this.pos2])
        // painter.commit();

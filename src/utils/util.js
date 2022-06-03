@@ -7,6 +7,14 @@ export function randInt(min, max) {
         return Math.floor(Math.random() * min);
 }
 
+export function rand(min, max) {
+    max += 1;
+    if (max)
+        return Math.random() * (max - min) + min;
+    else
+        return Math.random() * min;
+}
+
 export function clamp(val, max, min) {
     return Math.min(Math.max(val, max), min);
 }
@@ -14,9 +22,9 @@ export function clamp(val, max, min) {
 export function randColor(alpha) {
     return {
         r: randInt(255),
-        g: randInt(100),
-        b: randInt(100),
-        a: alpha
+        g: randInt(255),
+        b: randInt(255),
+        a: alpha || 255
     }
 }
 
@@ -41,6 +49,19 @@ export function colorToCss(color) {
     }
 }
 
+export function createPatternPainter(w, h) {
+    const patternCanvas = document.createElement('canvas');
+    const patternPainter = new Painter(this.patternCanvas, w, h);
+    return patternPainter;
+}
+
 export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export const COLORS = {
+    transparent: { r: 0, g: 0, b: 0, a: 0 },
+    black: { r: 0, g: 0, b: 0, a: 1 },
+    white: { r: 255, g: 255, b: 255, a: 255 }
+}
+
