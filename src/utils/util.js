@@ -1,7 +1,8 @@
+import { Painter } from "./painter";
 
 export function randInt(min, max) {
     max += 1;
-    if(max)
+    if (max)
         return Math.floor(Math.random() * (max - min) + min);
     else
         return Math.floor(Math.random() * min);
@@ -51,8 +52,28 @@ export function colorToCss(color) {
 
 export function createPatternPainter(w, h) {
     const patternCanvas = document.createElement('canvas');
-    const patternPainter = new Painter(this.patternCanvas, w, h);
+    const patternPainter = new Painter(patternCanvas, w, h);
     return patternPainter;
+}
+
+export function setColor(data, x, y, w, color) {
+    let start = y * (w * 4) + x * 4
+    data[start] = color.r;
+    data[start + 1] = color.g;
+    data[start + 2] = color.b;
+    data[start + 3] = color.a;
+}
+
+
+export function getColor(data, x, y, w) {
+    let start = y * (w * 4) + x * 4
+    let rgba = {
+        r: data[start],
+        g: data[start + 1],
+        b: data[start + 2],
+        a: data[start + 3]
+    }
+    return rgba
 }
 
 export function sleep(ms) {

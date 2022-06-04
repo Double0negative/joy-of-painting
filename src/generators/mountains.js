@@ -38,7 +38,7 @@ export default class Mountians {
     }
 
     paint(painter, options) {
-       this.paintSky();
+        this.paintSky();
         this.paintStars();
         this.paintSun();
         this.paintMnts();
@@ -124,6 +124,7 @@ export default class Mountians {
                 this.painter.setFill({ r: 0, g: 0, b: 0, a: 1 });
             } else {
                 this.painter.setStroke({ h: this.mtnColor, s: 100, l: 50, a: 0 });
+                //this.painter.setFill({ h: this.mtnColor, s: 100, l: 50, a: 1 });
                 this.painter.setFillCustom(this.createFillPattern({ h: this.mtnColor, s: 100, l: 40, a: 1 }, this.painter.w, this.painter.h, this.painter.h - max, this.painter.h - min));
             }
 
@@ -163,7 +164,7 @@ export default class Mountians {
 
             this.patternPainter.setFill({
                 ...color,
-                l: this.generateMntColor(color.l, y, top, h) + 40,
+                l: this.generateMntColor(color.l, y, top, h) + 30,
                 a: alphaVar
             });
 

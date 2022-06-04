@@ -32,8 +32,8 @@ export default class Lines {
         const grassNoise = new SimplexNoise();
         const groundPattern = createPatternPainter(this.painter.w, this.painter.h);
 
-        ground.setFill(COLORS.white);
-        ground.makeRect(0, 0, this.painter.w, this.painter.h);
+        // ground.setFill(COLORS.white);
+        // ground.makeRect(0, 0, this.painter.w, this.painter.h);
 
 
         for (let x = 0; x < this.painter.w; x += 5){

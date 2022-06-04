@@ -237,27 +237,8 @@ export default class Painter {
         }
     }
 
-    setColor(data, x, y, color) {
-        let start = y * (this.w * 4) + x * 4
-        data[start] = color.r;
-        data[start + 1] = color.g;
-        data[start + 2] = color.b;
-        data[start + 3] = color.a;
-    }
-
     compareColor(c1, c2) {
         return c1.r == c2.r && c1.g == c2.g && c1.b == c2.b && c1.a == c2.a
-    }
-
-    getColor(data, x, y) {
-        let start = y * (this.w * 4) + x * 4
-        let rgba = {
-            r: data[start],
-            g: data[start + 1],
-            b: data[start + 2],
-            a: data[start + 3]
-        }
-        return rgba
     }
 
 }
