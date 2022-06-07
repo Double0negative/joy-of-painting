@@ -6,6 +6,7 @@ import NoisyDots from "./noisy-dots";
 import NoisyLines from "./noisy-lines";
 import Road from "./road";
 import Hash from "./hash";
+import Retro from "./retro";
 
 export default {
     Lines,
@@ -16,4 +17,5 @@ export default {
     NoisyLines,
     Road,
     Hash,
+    Retro,
 }

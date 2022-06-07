@@ -6,13 +6,9 @@ export default class Lines {
 
     }
 
-    isIterable() {
-        return true;
-    }
 
-    getDefaultOptions() {
-
-    }
+    static isIterable = true;
+    static title = "Noisy Lines";
 
     setup(painter, options) {
         this.painter = painter;

@@ -12,14 +12,10 @@ export default class Mountians {
         this.noise;
         this.painter;
     }
-    isIterable() {
-        return false;
-    }
 
-    getDefaultOptions() {
-
-    }
-
+    static isIterable = false;
+    static title = "Mountains";
+    
     setup(painter, options) {
         this.painter = painter;
         // this.noise = new SimplexNoise();

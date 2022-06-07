@@ -13,9 +13,9 @@ export default class Dots {
             strokeBrightness: 25,
         }
     }
-    isIterable() {
-        return true;
-    }
+
+    static isIterable = true;
+    static title = "Dots";
 
     setup(painter) {
         this.color = {

@@ -13,9 +13,9 @@ export default class Smoke {
             strokeBrightness: 25,
         }
     }
-    isIterable() {
-        return true;
-    }
+
+    static isIterable = true;
+    static title = "Smoke";
 
     setup(painter) {
         this.color = {

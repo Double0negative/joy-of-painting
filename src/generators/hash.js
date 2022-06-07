@@ -10,13 +10,9 @@ export default class Hash {
         this.y = 0;
     }
 
-    isIterable() {
-        return true;
-    }
 
-    getDefaultOptions() {
-
-    }
+    static isIterable = true;
+    static title = "Hash";
 
     setup(painter, options) {
         this.maxIterations = 10000;

@@ -6,13 +6,9 @@ export default class Lines {
         this.color = undefined;
        
     }
-    isIterable() {
-        return true;
-    }
 
-    getDefaultOptions() {
-
-    }
+    static isIterable = true;
+    static title = "Noisy Dots";
 
     setup(painter, options) {
         this.color = randColor();
@@ -26,6 +22,7 @@ export default class Lines {
 
         this.noise = new SimplexNoise();
         painter.setStroke(COLORS.transparent);
+        painter.clear(COLORS.black);
     }
 
     paint(painter, options) {

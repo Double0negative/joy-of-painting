@@ -56,6 +56,10 @@ export default class Painter {
         this.updateSnapshot();
     }
 
+    getCanvas() {
+        return this.canvas;
+    }
+
     last() {
         this.ctx.drawImage(this.buffer, 0, 0)
     }

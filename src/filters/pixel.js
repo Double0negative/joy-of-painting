@@ -6,7 +6,7 @@ export default class Pixel {
     }
 
     filter(painter, options) {
-        let data = painter.getImageData().data;
+        let data = painter.getImageData();
         console.log(data);
         painter.clear();
         painter.setStroke(COLORS.transparent);

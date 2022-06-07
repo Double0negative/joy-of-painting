@@ -7,7 +7,7 @@
                     <option v-for="generator in generators" :key="generator.title" :value="generator">{{ generator.title
                         || generator.constructor.name }}</option>
                 </select>
-                <form-kit :actions="false" v-if="selectedGenerator" type="form" v-model="generatorOptions">
+                <form-kit :actions="false" v-if="selectedGenerator && selectedGenerator.options" type="form" v-model="generatorOptions">
                     <form-kit-schema :schema="selectedGenerator.options"></form-kit-schema>
                 </form-kit>
             </div>
@@ -54,7 +54,6 @@ async function generate() {
     const generator = new selectedGenerator.value();
     generator.setup(painter, generatorOptions.value)
 
-    console.log(selectedGenerator.value.isIterable)
     if (selectedGenerator.value.isIterable) {
         let stop = false;
         let iteration = 0;

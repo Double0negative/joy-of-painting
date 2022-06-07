@@ -1,4 +1,4 @@
-import { Painter } from "./painter";
+import Painter from "./painter";
 
 export function randInt(min, max) {
     max += 1;
