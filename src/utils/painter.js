@@ -111,7 +111,7 @@ export default class Painter {
     }
 
     setFill(color) {
-        this.fill = colorToCss(color);
+        this.fill = color ? colorToCss(color) : undefined;
         if (color)
             this.ctx.fillStyle = colorToCss(color);
     }
@@ -153,7 +153,18 @@ export default class Painter {
         if (this.fill) {
             this.ctx.fill();
         }
+    }
 
+    makeCurve(startX, startY, endX, endY, controlX, controlY) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(startX, startY);
+
+        this.ctx.quadraticCurveTo(controlX, controlY, endX, endY);
+        this.ctx.stroke();
+
+        if (this.fill) {
+            this.ctx.fill();
+        }
     }
 
     floodFill(x, y, color, outline) {

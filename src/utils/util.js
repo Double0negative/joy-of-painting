@@ -80,9 +80,19 @@ export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+export function rgba(r, g, b, a) {
+    return { r, g, b, a };
+}
+
+export function hsla(h, s, l, a) {
+    return { h, s, l, a };
+}
+
 export const COLORS = {
     transparent: { r: 0, g: 0, b: 0, a: 0 },
     black: { r: 0, g: 0, b: 0, a: 1 },
     white: { r: 255, g: 255, b: 255, a: 255 }
 }
+
+
 

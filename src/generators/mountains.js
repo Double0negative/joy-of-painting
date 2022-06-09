@@ -30,7 +30,7 @@ export default class Mountians {
 
         this.patternCanvas = document.createElement('canvas');
         this.patternPainter = new Painter(this.patternCanvas, this.painter.w, this.painter.h);
-        document.body.appendChild(this.patternCanvas);
+        // document.body.appendChild(this.patternCanvas);
     }
 
     paint(painter, options) {
@@ -164,11 +164,8 @@ export default class Mountians {
                 a: alphaVar
             });
 
-
             this.patternPainter.makeCircle(x, y, size);
         }
-
-
         return this.painter.getCtx().createPattern(this.patternCanvas, "no-repeat");
     }
 
@@ -178,7 +175,6 @@ export default class Mountians {
 
         return color;
     }
-
 
     paintTrees() {
         const treeCount = randInt(2, 6);

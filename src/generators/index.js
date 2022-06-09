@@ -7,11 +7,12 @@ import NoisyLines from "./noisy-lines";
 import Road from "./road";
 import Hash from "./hash";
 import Retro from "./retro";
-
+import Volcano from "./volcano"
 export default {
+    Volcano,
     Lines,
     Dots,
-    Smoke,
+    // Smoke, 
     Mountains,
     NoisyDots,
     NoisyLines,
