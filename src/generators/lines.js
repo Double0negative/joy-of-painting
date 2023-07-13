@@ -41,7 +41,7 @@ export default class Lines {
         {
             $formkit: 'range',
             name: "colorMove",
-            label: 'Color Movment',
+            label: 'Color Movement',
             min: 1,
             max: 30,
             value: 3,
@@ -64,6 +64,8 @@ export default class Lines {
         let color = tinycolor(options.background).toRgb();
         painter.setFill(color);
         painter.makeRect(0, 0, painter.w, painter.h);
+        painter.fill = false;
+
     }
 
     paint(painter, options, iteration) {
@@ -71,6 +73,7 @@ export default class Lines {
             console.log(iteration, this.maxIterations)
             return true;
         }
+
         painter.setStroke(this.color, 2);
         painter.makePath([this.pos1, this.pos2])
 

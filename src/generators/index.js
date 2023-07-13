@@ -9,14 +9,14 @@ import Hash from "./hash";
 import Retro from "./retro";
 import Volcano from "./volcano"
 export default {
-    Volcano,
+    // Volcano,
     Lines,
     Dots,
-    // Smoke, 
+    Smoke, 
     Mountains,
     NoisyDots,
     NoisyLines,
-    Road,
+    // Road,
     Hash,
     Retro,
 }

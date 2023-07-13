@@ -28,6 +28,7 @@ export default class Volcano {
         this.paintSky();
         this.paintMounts();
         this.paintStreamers();
+        this.drawOcean();
     }
 
     paintSky() {
@@ -41,6 +42,8 @@ export default class Volcano {
             this.painter.makeCircle(randInt(0, this.painter.w), randInt(0, this.painter.h), size)
         }
     }
+
+    paintOcean() { }
 
     paintStreamers() {
         this.painter.setFill();
